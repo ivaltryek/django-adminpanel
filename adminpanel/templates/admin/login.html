@@ -7,6 +7,8 @@
     aside-minimize-hoverable page-loading" >
 
 {% block extrastyle %}{{ block.super }}
+    <div class="d-flex flex-column flex-root" style="background-image: url('{% static "/media/bg/bg-2.jpg" %}')">
+
     <link rel="stylesheet" type="text/css" href="{% static "css/pages/login/classic/login-3.css" %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
     <!--end::Fonts-->
@@ -32,7 +34,9 @@
 
 {% block usertools %}{% endblock %}
 
-{% block nav-global %}{% endblock %}
+{% block nav-global %}
+
+{% endblock %}
 
 {% block nav-sidebar %}{% endblock %}
 
@@ -41,6 +45,7 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
+
     {% if form.errors and not form.non_field_errors %}
         <p class="errornote">
             {% if form.errors.items|length == 1 %}{% translate "Please correct the error below." %}{% else %}
@@ -55,7 +60,6 @@
             </p>
         {% endfor %}
     {% endif %}
-    <div class="d-flex flex-column flex-root" style="background-image: url('{% static "/media/bg/bg-2.jpg" %}')">
         <div class="login login-3 login-signin-on d-flex flex-row-fluid" id="kt_login">
             <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid"
                  >
@@ -82,11 +86,12 @@
 
                         <form class="form" action="{{ app_path }}" method="post" id="kt_login_signin_form">
                         {% csrf_token %}
-                        <div class="form-group form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8">
+                        <div class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8">
                             {{ form.username.errors }}
                             {{ form.username.label_tag }} {{ form.username }}
                         </div>
-                        <div class="form-group form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8">
+                            <br>
+                        <div class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8">
                             {{ form.password.errors }}
                             {{ form.password.label_tag }} {{ form.password }}
                             <input type="hidden" name="next" value="{{ next }}">
