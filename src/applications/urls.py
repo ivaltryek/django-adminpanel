@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
-# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) --> To host static server in local development.
+# + static(settings.STATIC_URL, document_root=settings.STATIC_DIR) --> To host static server in local development.
 urlpatterns = [
                   path('admin/', admin.site.urls),
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_DIR)
