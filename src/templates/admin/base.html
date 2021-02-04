@@ -40,15 +40,17 @@
 </head>
 {% load i18n %}
 
-<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}aside-fixed aside-minimize{% endblock %}"
       data-admin-utc-offset="{% now "Z" %}">
 
 <!-- Container -->
 <div id="container">
 
     {% if not is_popup %}
+        <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+
         <!-- Header -->
-        <div id="kt_header" class="header header-fixed">
+        <div id="kt_header" class="header">
             <div id="branding">
                 {% block branding %}{% endblock %}
             </div>
@@ -70,7 +72,7 @@
 
                             <li class="menu-item menu-item-submenu" >
                                 {% if site_url %}
-                                    <a class="menu-link menu-toggle" href="{{ site_url }}"><span
+                                    <a class="menu-link" href="{{ site_url }}"><span
                                             class="menu-text">{% translate 'View site' %}</span></a> /
                                 {% endif %}
                             </li>
@@ -83,13 +85,13 @@
 
                             {% if user.has_usable_password %}
                                 <li class="menu-item menu-item-submenu">
-                                    <a class="menu-link menu-toggle" href="{% url 'admin:password_change' %}">
+                                    <a class="menu-link" href="{% url 'admin:password_change' %}">
                                         <span class="menu-text">{% translate 'Change password' %}</span></a> /
                                 </li>
                             {% endif %}
 
                             <li class="menu-item menu-item-submenu">
-                                <a class="menu-link menu-toggle" href="{% url 'admin:logout' %}">
+                                <a class="menu-link" href="{% url 'admin:logout' %}">
                                     <span class="menu-text">{% translate 'Log out' %}</span></a>
                             </li>
                         {% endblock %}
@@ -141,7 +143,73 @@
                 <div id="footer"></div>{% endblock %}
         </div>
     </div>
+    </div>
 </div>
 <!-- END Container -->
+<!--begin::Global Config(global config for global JS scripts)-->
+<script>let KTAppSettings = {
+    "breakpoints": {"sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200},
+    "colors": {
+        "theme": {
+            "base": {
+                "white": "#ffffff",
+                "primary": "#6993FF",
+                "secondary": "#E5EAEE",
+                "success": "#1BC5BD",
+                "info": "#8950FC",
+                "warning": "#FFA800",
+                "danger": "#F64E60",
+                "light": "#F3F6F9",
+                "dark": "#212121"
+            },
+            "light": {
+                "white": "#ffffff",
+                "primary": "#E1E9FF",
+                "secondary": "#ECF0F3",
+                "success": "#C9F7F5",
+                "info": "#EEE5FF",
+                "warning": "#FFF4DE",
+                "danger": "#FFE2E5",
+                "light": "#F3F6F9",
+                "dark": "#D6D6E0"
+            },
+            "inverse": {
+                "white": "#ffffff",
+                "primary": "#ffffff",
+                "secondary": "#212121",
+                "success": "#ffffff",
+                "info": "#ffffff",
+                "warning": "#ffffff",
+                "danger": "#ffffff",
+                "light": "#464E5F",
+                "dark": "#ffffff"
+            }
+        },
+        "gray": {
+            "gray-100": "#F3F6F9",
+            "gray-200": "#ECF0F3",
+            "gray-300": "#E5EAEE",
+            "gray-400": "#D6D6E0",
+            "gray-500": "#B5B5C3",
+            "gray-600": "#80808F",
+            "gray-700": "#464E5F",
+            "gray-800": "#1B283F",
+            "gray-900": "#212121"
+        }
+    },
+    "font-family": "Poppins"
+};</script>
+<!--end::Global Config-->
+<!--begin::Global Theme Bundle(used by all pages)-->
+<script src="{% static "/plugins/global/plugins.bundle.js" %}"></script>
+{#<script src="{% static "/plugins/custom/prismjs/prismjs.bundle.js" %}"></script>#}
+<script src="{% static "/js/scripts.bundle.js" %}"></script>
+<!--end::Global Theme Bundle-->
+<!--begin::Page Vendors(used by this page)-->
+<script src="{% static '/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+<!--end::Page Vendors-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="{% static '/js/pages/widgets.js' %}"></script>
+<!--end::Page Scripts-->
 </body>
 </html>
