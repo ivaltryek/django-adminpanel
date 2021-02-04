@@ -70,7 +70,7 @@
                         {% endblock %}
                         {% block userlinks %}
 
-                            <li class="menu-item menu-item-submenu" >
+                            <li class="menu-item menu-item-submenu">
                                 {% if site_url %}
                                     <a class="menu-link" href="{{ site_url }}"><span
                                             class="menu-text">{% translate 'View site' %}</span></a> /
@@ -127,7 +127,7 @@
                 {% endif %}
             {% endblock messages %}
             <!-- Content -->
-{#            <br><br>#}
+            {#            <br><br>#}
             <div id="content" class="{% block coltype %}colM{% endblock %}">
                 {% block pretitle %}{% endblock %}
                 {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}

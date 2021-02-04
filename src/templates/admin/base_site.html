@@ -1,15 +1,18 @@
 {% extends "admin/base.html" %}
 {% load static %}
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block extrastyle %}
+     {{ block.super }}
 
+{% endblock %}
 {% block branding %}
     <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
         <div id="kt_brand" class="brand flex-column-auto" style="">
-        ">
-        <a class="brand-logo" href="{% url 'admin:index' %}">
-            <img alt="Logo" src="{% static "media/logos/logo-light.png" %}">
-        </a>
-        <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+            ">
+            <a class="brand-logo" href="{% url 'admin:index' %}">
+                <img alt="Logo" src="{% static "media/logos/logo-light.png" %}">
+            </a>
+            <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
             <span class="svg-icon svg-icon svg-icon-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                      height="24px" viewBox="0 0 24 24" version="1.1">
@@ -24,14 +27,14 @@
                     </g>
                 </svg>
             </span>
-        </button>
-    </div>
-    <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
-        <div id="kt_aside_menu" class="aside-menu my-4 scroll ps ps--active-y" data-menu-vertical="1"
-             data-menu-scroll="1" data-menu-dropdown-timeout="500" style="height: 442px; overflow: hidden;">
-            <ul class="menu-nav">
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="" class="menu-link">
+            </button>
+        </div>
+        <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+            <div id="kt_aside_menu" class="aside-menu my-4 scroll ps ps--active-y" data-menu-vertical="1"
+                 data-menu-scroll="1" data-menu-dropdown-timeout="500" style="height: 442px; overflow: hidden;">
+                <ul class="menu-nav">
+                    <li class="menu-item menu-item-active" aria-haspopup="true">
+                        <a href="" class="menu-link">
                             <span class="svg-icon menu-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                      width="24px" height="24px" viewBox="0 0 24 24">
@@ -44,12 +47,12 @@
                                     </g>
                                 </svg>
                             </span>
-                        <span class="menu-text">Dashboard</span>
-                    </a>
-                </li>
-            </ul>
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
     </div>
 
 {% endblock %}
