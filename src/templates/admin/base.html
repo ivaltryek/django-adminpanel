@@ -20,10 +20,22 @@
         <link href="{% static "css/style.bundle.css" %}" rel="stylesheet" type="text/css"/>
         <!--end::Global Theme Styles-->
         <!--begin::Layout Themes-->
+
+        <!--begin:: Light Header Theme -->
         <link href="{% static "css/themes/layout/header/base/light.css" %}" rel="stylesheet" type="text/css"/>
         <link href="{% static "css/themes/layout/header/menu/light.css" %}" rel="stylesheet" type="text/css"/>
-        <link href="{% static "css/themes/layout/brand/dark.css" %}" rel="stylesheet" type="text/css"/>
-        <link href="{% static "css/themes/layout/aside/dark.css" %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static "css/themes/layout/brand/light.css" %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static "css/themes/layout/aside/light.css" %}" rel="stylesheet" type="text/css"/>
+        <!--end:: Light Header Theme -->
+
+        <!-- COMMENT THE THEME THAT YOU DON'T WANT TO USE, Currently theme is set to Light -->
+
+        <!--begin:: Light Header Theme -->
+{#        <link href="{% static "css/themes/layout/header/base/dark.css" %}" rel="stylesheet" type="text/css"/>#}
+{#        <link href="{% static "css/themes/layout/header/menu/dark.css" %}" rel="stylesheet" type="text/css"/>#}
+{#        <link href="{% static "css/themes/layout/brand/dark.css" %}" rel="stylesheet" type="text/css"/>#}
+{#        <link href="{% static "css/themes/layout/aside/dark.css" %}" rel="stylesheet" type="text/css"/>#}
+        <!--end:: Dark Header Theme -->
     {% endblock %}
     {% if LANGUAGE_BIDI %}
         <link rel="stylesheet" type="text/css"
